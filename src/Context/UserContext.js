@@ -59,6 +59,7 @@ const UserContext = ({children}) => {
     SignUp,
     updateProfile,
     logIn,
+    loginWithGoogle,
     signOutUser
   }
 

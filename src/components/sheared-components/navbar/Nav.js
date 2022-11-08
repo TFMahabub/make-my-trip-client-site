@@ -67,8 +67,11 @@ const Nav = () => {
                   </ul>
               </div>
               
-              <div className="hidden md:inline-block">
-                <img className='w-12' src={user?.photoURL} alt="" />
+              <div className="hidden md:flex">
+                {
+                    user?.photoURL &&
+                    <img className='w-10 h-10 rounded-full mr-3' src={user?.photoURL} alt="" />
+                }
                 {
                     user?.uid?
                     <button 
