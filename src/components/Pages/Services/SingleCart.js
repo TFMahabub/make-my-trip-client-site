@@ -11,20 +11,21 @@ const SingleCart = ({service}) => {
     <div className='border border-[#dadada] p-3 md:p-4 rounded-lg flex flex-col justify-between shadow-lg'>
         <div>
           <img className='rounded-lg' src={img} alt="" />
-          <div className='flex items-center justify-between'>
-          <h3 className='text-xl text-dark-gray font-semibold mt-2'>{title}</h3>
-          <div>
-            {
-              rating === "4.0" && <Rating4></Rating4>
-            }
-            {
-              rating === "4.5" && <Rating45></Rating45>
-            }
-            {
-              rating === "5" && <Rating5></Rating5>
-            }
+          <div className='flex items-center justify-between mt-3'>
+            <h3 className='text-xl text-dark-gray font-semibold'>{title}</h3>
+            <div className="flex items-center space-x-1">
+              {
+                rating === "4.0" && <Rating4></Rating4>
+              }
+              {
+                rating === "4.5" && <Rating45></Rating45>
+              }
+              {
+                rating === "5" && <Rating5></Rating5>
+              }
+              <p className="text-light-gray font-medium">{rating}</p>
+            </div>
           </div>
-        </div>
           <p className='text-light-gray mt-1'><span>{description}</span></p>
         </div>
         <div className='flex items-center justify-between mt-2'>
