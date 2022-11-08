@@ -1,0 +1,50 @@
+[
+  {
+    "services": 1,
+    "img": "https://i.ibb.co/Y7bGXQp/bus-services.jpg",
+    "title": "Bus Transport Services",
+    "rating": "4.5",
+    "price": "20.00",
+    "description": "Public transport services refer to the entire range of transport services that are available to the public including demand responsive transport, buses, trams, light rail systems, metro (underground) and long distance rail services.  There are a number of broad, and sometimes conflicting, aims which may influence considerations about public transport service levels and patterns."
+  },
+  {
+    "services": 2,
+    "img": "https://i.ibb.co/cvW7sF9/air-plain.jpg",
+    "title": "Air Transport Services",
+    "rating": "4.0",
+    "price": "150.00",
+    "description": "After a passenger selects a certain flight, the retailer — be it an airline website or OTA — checks with the CRS if the option is still available at the same price. Then it collects a traveler’s data to create a Passenger Name Record (PNR). This digital document contains essential information about the itinerary in question and is stored in the CRS."
+  },
+  {
+    "services": 3,
+    "img": "https://i.ibb.co/bvkNbBq/ship-services.jpg",
+    "title": "Boat Services",
+    "rating": "5",
+    "price": "60.00",
+    "description": "A boat service is regularly scheduled transport using one or more boats, typically on a river, at a set charge, normally depending on the length of the trip and the type of passenger. The service may only be available for foot passengers."
+  },
+  {
+    "services": 4,
+    "img": "https://i.ibb.co/fSgM1hr/hotel-services.jpg",
+    "title": "Hotel Services",
+    "rating": "5",
+    "price": "100.00",
+    "description": "Budget rooms to 5* hotels with classy amenities. The hotels contribute a major share of imparting the experience to the tourists by providing best services and amenities."
+  },
+  {
+    "services": 5,
+    "img": "https://i.ibb.co/NCPPcXJ/camping-services.jpg",
+    "title": "Camping Sites",
+    "rating": "4.5",
+    "price": "30.00",
+    "description": "They are open sites often located in areas of lush greenery. They are equipped with clean place to pitch the personal tent, a water supply, and electric supply. Camp sites have common rest rooms."
+  },
+  {
+    "services": 6,
+    "img": "https://i.ibb.co/zhRDZg0/hospitality-services.jpg",
+    "title": "Hospitality",
+    "rating": "4.5",
+    "price": "50.00",
+    "description": "Nowadays hospitality and tourism industry is one of the main industry in this world. A lot of people need a place to escape from their routines or even just to stay overnight as they having a business trip to other places. We call these people as customer or guest. Human mobility from one place to another , both in the country and from and abroad is very high."
+  }
+]
