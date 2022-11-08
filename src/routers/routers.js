@@ -4,6 +4,7 @@ import Login from "../components/Pages/login/Login";
 import Register from "../components/Pages/Register/Register";
 import Services from "../components/Pages/Services/Services";
 import MainOutlet from "./MainOutlet";
+import PrivateRoute from "./PrivateRoute";
 
 export const routers = createBrowserRouter([
   {
@@ -24,7 +25,7 @@ export const routers = createBrowserRouter([
       },
       {
         path: '/services',
-        element: <Services></Services>
+        element: <PrivateRoute><Services></Services></PrivateRoute>
       },
       
     ]

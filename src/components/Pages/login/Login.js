@@ -1,8 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Result } from 'postcss';
+import React, { useContext } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../Context/UserContext';
 
 const Login = () => {
-  
+  const { user, logIn } = useContext(AuthContext)
+
+  let navigate = useNavigate();
+  let location = useLocation();
+
+  let from = location.state?.from?.pathname || "/";
 
 
   const handleOnSubmit = e =>{
@@ -12,7 +19,12 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(email, password);
+    logIn(email, password)
+    .then(result => {
+      console.log(result)
+      navigate(from, { replace: true });
+    })
+    .then(err => console.error(err))
   }
   return (
     <section>

@@ -1,12 +1,18 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/UserContext';
 import logo from '../../../Images/logo/logo.png'
 
 const Nav = () => {
   const [state, setState] = useState(false)
-  let user = 'mahabub';
+  const { user, signOutUser } = useContext(AuthContext)
+  console.log(user);
 
     
+  const handleSignOut = () =>{
+    signOutUser()
+    .then(err => console.error(err))
+  }
 
   const navigation = [
       { title: "Home", path: "/" },
@@ -60,10 +66,13 @@ const Nav = () => {
                       }
                   </ul>
               </div>
+              
               <div className="hidden md:inline-block">
+                <img className='w-12' src={user?.photoURL} alt="" />
                 {
                     user?.uid?
                     <button 
+                    onClick={handleSignOut}
                     className="py-2 px-6 font-medium hover:text-[#fff] border border-green hover:bg-green rounded-md">
                         Sign out
                     </button>

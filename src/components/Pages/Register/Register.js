@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../Context/UserContext';
 
 const Register = () => {
+  const { user, SignUp, updateProfile } = useContext(AuthContext)
 
-
-
+console.log(user);
   const handleOnSubmit = e =>{
     e.preventDefault()
     const form = e.target;
@@ -12,7 +13,14 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    
+    console.log(imageUrl, name);
+
+    SignUp(email, password)
+    .then(()=>{
+      updateProfile(name, imageUrl)
+      .then(err => console.error(err))
+    })
+    .then(err => console.error(err))
   }
   return (
     <section>
