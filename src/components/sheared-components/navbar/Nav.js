@@ -16,7 +16,6 @@ const Nav = () => {
 
   const navigation = [
       { title: "Home", path: "/" },
-      { title: "About", path: "/about" },
       { title: "Services", path: "/services" },
       { title: "Blog", path: "/blog" },
       { title: "Contact", path: "/contact" }
@@ -24,7 +23,7 @@ const Nav = () => {
 
   return (
     <nav className="bg-white container mx-auto">
-          <div className="items-center px-2 max-w-screen-xl md:flex md:px-0">
+          <div className="items-center px-2 md:flex md:px-0">
               <div className="flex items-center justify-between py-3 md:block">
                     <Link to='/'>
                         <img

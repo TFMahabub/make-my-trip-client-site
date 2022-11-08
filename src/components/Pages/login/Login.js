@@ -14,6 +14,9 @@ const Login = () => {
 
   const handleGoogleLogin = () =>{
     loginWithGoogle()
+    .then(()=>{
+      navigate(from, { replace: true });
+    })
     .then(err => console.error(err))
   }
 
@@ -49,7 +52,7 @@ const Login = () => {
               <a rel="noopener noreferrer" href="#">Forgot Password?</a>
             </div>
           </div>
-          <button type='submit' className="block w-full p-3 text-center rounded-md text-[#fff] hover:bg-dark-green bg-green">Sign in</button>
+          <button type='submit' className="block w-full p-3 text-center rounded-md text-[#fff] hover:bg-dark-green bg-green">Log in</button>
         </form>
 
 

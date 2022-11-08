@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/UserContext';
 
 const Register = () => {
@@ -16,7 +17,10 @@ console.log(user);
     SignUp(email, password)
     .then(()=>{
       updateUserProfile(name, imageUrl)
-      .then(result => console.log(result))
+      .then(result => {
+        console.log(result)
+        form.reset()
+      })
       .then(err => console.error(err))
     })
     .then(err => console.error(err))
@@ -52,7 +56,7 @@ console.log(user);
 
 
         <p className="text-sm text-center sm:px-6 dark:text-gray-400">Already have an account?
-          <a rel="noopener noreferrer" href="#" className="underline text-green">Login</a>
+          <Link to='/login' className="underline text-green"> Login</Link>
         </p>
       </div>
     </section>

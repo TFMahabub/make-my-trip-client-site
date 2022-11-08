@@ -6,7 +6,7 @@ import TopDestination from './TopDestination/TopDestination';
 
 const Home = () => {
   return (
-    <div className='container mx-auto'>
+    <div className='container mx-auto '>
       <Banner></Banner>
       <HomeServices></HomeServices>
       <TopDestination></TopDestination>
