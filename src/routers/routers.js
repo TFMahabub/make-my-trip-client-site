@@ -2,7 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../components/Pages/Home/Home";
 import Login from "../components/Pages/login/Login";
 import Register from "../components/Pages/Register/Register";
-import ServiceDetails from "../components/Pages/Services/Service-Details/ServiceDetails";
+import ServiceDetailsPage from "../components/Pages/Services/Service-Details/ServiceDetailsPage";
+import ServiceDetails from "../components/Pages/Services/Service-Details/ServiceDetailsPage";
 import Services from "../components/Pages/Services/Services";
 import ErrorPage from "./ErrorPage";
 import MainOutlet from "./MainOutlet";
@@ -32,7 +33,7 @@ export const routers = createBrowserRouter([
       {
         path: '/service/:id',
         loader: async({params}) => fetch(`http://localhost:5000/service/${params.id}`),
-        element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>
+        element: <PrivateRoute><ServiceDetailsPage></ServiceDetailsPage>  </PrivateRoute>
       },
       
       {
