@@ -15,9 +15,9 @@ const Nav = () => {
   const navigation = [
       { title: "Home", path: "/" },
       { title: "Services", path: "/services" },
-      { title: "Blog", path: "/blog" },
       { title: "My reviews", path: "/my_reviews"},
-      { title: "Add service", path: "/add_service"}
+      { title: "Add service", path: "/add_service"},
+      { title: "Blog", path: "/blog" }
   ]
 
   return (
