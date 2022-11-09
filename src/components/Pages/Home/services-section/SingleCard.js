@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import Rating4 from './Ratings/Rating4';
 import Rating45 from './Ratings/Rating45';
 import Rating5 from './Ratings/Rating5';
+//react-photo-viewer-
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const SingleCard = ({service}) => {
   const {_id, servicesId, description, rating, title, img, price} = service;
@@ -11,7 +14,11 @@ const SingleCard = ({service}) => {
 
   return (
     <div className='border border-[#dadada] p-3 md:p-4 rounded-lg shadow-lg'>
-        <img className='rounded-lg' src={img} alt="" />
+        <PhotoProvider>
+          <PhotoView src={img}>
+            <img className='rounded-lg' src={img} alt="" />
+          </PhotoView>
+        </PhotoProvider>
         <div className='flex items-center justify-between mt-3'>
             <h3 className='text-xl text-dark-gray font-semibold'>{title}</h3>
             <div className="flex items-center space-x-1">

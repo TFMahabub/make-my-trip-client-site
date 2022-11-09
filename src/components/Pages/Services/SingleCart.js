@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import Rating4 from "../Home/services-section/Ratings/Rating4";
 import Rating45 from "../Home/services-section/Ratings/Rating45";
 import Rating5 from "../Home/services-section/Ratings/Rating5";
+//react-photo-viewer-
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const SingleCart = ({service}) => {
   const { _id, img, title, description, price, rating, servicesId, } = service;
@@ -10,7 +13,11 @@ const SingleCart = ({service}) => {
   return (
     <div className='border border-[#dadada] p-3 md:p-4 rounded-lg flex flex-col justify-between shadow-lg'>
         <div>
-          <img className='rounded-lg' src={img} alt="" />
+        <PhotoProvider>
+          <PhotoView src={img}>
+            <img className='rounded-lg' src={img} alt="" />
+          </PhotoView>
+        </PhotoProvider>
           <div className='flex items-center justify-between mt-3'>
             <h3 className='text-xl text-dark-gray font-semibold'>{title}</h3>
             <div className="flex items-center space-x-1">
