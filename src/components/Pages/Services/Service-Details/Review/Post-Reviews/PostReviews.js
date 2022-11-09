@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../../../../Context/UserContext';
+import { toast } from 'react-toastify';
 
 const PostReviews = () => {
   const [rating, setRating] = useState(0)
@@ -8,7 +9,6 @@ const PostReviews = () => {
 
   //login User-
   const { user } = useContext(AuthContext)
-  const { displayName, email, photoURL } = user;
 
   //clicked services Id-
   const clickedService = useLoaderData()
@@ -18,15 +18,27 @@ const PostReviews = () => {
   const handleOnSubmit = e =>{
     e.preventDefault()
 
+    if(!user?.uid){
+      return toast.error('login to add a review', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+    }
     const reviewText = e.target.reviewText.value;
     if(rating ===0){ 
       return alert('Select your Rating')
     }
     const inputReviews = {
       serviceId: servicesId,
-      name: displayName,
-      image: photoURL,
-      userEmail: email,
+      name: user?.displayName,
+      image: user?.photoURL,
+      userEmail: user?.email,
       rating: rating,
       reviewText: reviewText
     }
@@ -45,7 +57,16 @@ const PostReviews = () => {
     .then(data => {
       if(data.insertedId){
         e.target.reset()
-        console.log(data);
+        toast.success('review add successfully', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
       }
     })
   }
@@ -60,7 +81,7 @@ const PostReviews = () => {
           <h3 onClick={()=>setRating(4.5)} className='bg-[#bfebbf] rounded-full font-semibold text-green w-10 h-10 cursor-pointer flex items-center justify-center'>4.5</h3>
           <h3 onClick={()=>setRating(5)} className='bg-[#bfebbf] rounded-full font-semibold text-green w-10 h-10 cursor-pointer flex items-center justify-center'>5</h3>
         </div>
-        <textarea className='border-0 focus:ring-green bg-[#e8fde8] w-full px-4 py-3 rounded-md mt-7 text-green tracking-wide' name="reviewText" id="" rows="10" placeholder='Enter your reviews' required></textarea>
+        <textarea className='border-0 focus:ring-green bg-[#e8fde8] w-full px-4 py-3 rounded-md mt-7 text-green tracking-wide' name="reviewText" id="" rows="10" placeholder='Enter your reviews'></textarea>
         <button type='submit' className='w-full py-2 text-[#fff] mt-3 rounded-md bg-green hover:bg-dark-green'>Submit</button>
       </form>
     </section>

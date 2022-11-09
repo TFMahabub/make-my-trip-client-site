@@ -10,7 +10,8 @@ import 'react-photo-view/dist/react-photo-view.css';
 const ServicesDetails = () => {
   const service = useLoaderData()
   const { _id, img, title, description, price, rating, servicesId, } = service;
-  console.log(service);
+
+  
   return (
     <section className=' mt-6'>
       <h2 className='text-center text-3xl font-bold text-dark-gray'>Service Details</h2>

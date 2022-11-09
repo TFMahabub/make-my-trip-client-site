@@ -11,7 +11,7 @@ const SingleCart = ({service}) => {
   const { _id, img, title, description, price, rating, servicesId, } = service;
 
   return (
-    <div className='border border-[#dadada] p-3 md:p-4 rounded-lg flex flex-col justify-between shadow-lg'>
+    <div className='border border-[#dadada] p-3 md:p-4 rounded-lg shadow-lg'>
         <div>
         <PhotoProvider>
           <PhotoView src={img}>
@@ -33,9 +33,9 @@ const SingleCart = ({service}) => {
               <p className="text-light-gray font-medium">{rating}</p>
             </div>
           </div>
-          <p className='text-light-gray mt-1'><span>{description}</span></p>
+          <p className='text-light-gray mt-1'><span>{description.slice(0, 200)+'...'}</span></p>
         </div>
-        <div className='flex items-center justify-between mt-2'>
+        <div className='flex items-center justify-between mt-4'>
           <h4 className='text-lg font-semibold text-light-gray'>Cost: <span className='text-green'>${price}</span> </h4>
           <Link to={`/service/${servicesId}`} className='flex items-center border border-green px-3 py-1 rounded-md hover:bg-light-green text-light-gray font-medium'>
             Details

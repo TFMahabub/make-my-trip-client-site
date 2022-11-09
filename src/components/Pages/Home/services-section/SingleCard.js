@@ -10,7 +10,6 @@ import 'react-photo-view/dist/react-photo-view.css';
 
 const SingleCard = ({service}) => {
   const {_id, servicesId, description, rating, title, img, price} = service;
-  console.log(service);
 
   return (
     <div className='border border-[#dadada] p-3 md:p-4 rounded-lg shadow-lg'>

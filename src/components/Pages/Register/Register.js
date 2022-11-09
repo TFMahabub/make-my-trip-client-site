@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/UserContext';
+import { toast } from 'react-toastify';
 
 const Register = () => {
   const { user, SignUp, updateUserProfile } = useContext(AuthContext)
@@ -18,12 +19,32 @@ console.log(user);
     .then(()=>{
       updateUserProfile(name, imageUrl)
       .then(result => {
-        console.log(result)
         form.reset()
       })
-      .then(err => console.error(err))
+      toast.success('create account successfully', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
     })
-    .then(err => console.error(err))
+    .catch(error => {
+      console.error(error)
+      toast.error('something went wrong', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+    })
   }
   return (
     <section>
@@ -34,7 +55,7 @@ console.log(user);
         <form onSubmit={handleOnSubmit} action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
           <div className="space-y-1 text-sm">
             <label  className="block text-start dark:text-gray-400">Image url:</label>
-            <input type="text" name="image" placeholder="Image url" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required/>
+            <input type="text" name="image" placeholder="Image url" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"/>
           </div>
           <div className="space-y-1 text-sm">
             <label  className="block text-start dark:text-gray-400">Name</label>

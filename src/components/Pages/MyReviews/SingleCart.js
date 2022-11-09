@@ -1,14 +1,13 @@
 import React from 'react';
-import { AiOutlineArrowRight } from "react-icons/ai";
-import Rating0 from '../../../Home/services-section/Ratings/Rating0';
-import Rating4 from '../../../Home/services-section/Ratings/Rating4';
-import Rating45 from '../../../Home/services-section/Ratings/Rating45';
-import Rating5 from '../../../Home/services-section/Ratings/Rating5';
+import Rating0 from '../Home/services-section/Ratings/Rating0';
+import Rating4 from '../Home/services-section/Ratings/Rating4';
+import Rating45 from '../Home/services-section/Ratings/Rating45';
+import Rating5 from '../Home/services-section/Ratings/Rating5';
 
-const CurrentServiceSinglePage = ({sr}) => {
-  const { serviceId, name, image, userEmail, rating, reviewText  } = sr;
+const SingleCart = ({review}) => {
+  const { name, image, rating, reviewText } = review;
 
-  
+
   return (
     <div className='mt-10 border border-[#e6e6e6] shadow-lg rounded-lg p-6'>
       <img className='w-14 h-14 rounded-full mx-auto' src={image? image : "https://i.ibb.co/QNd1bdZ/user.jpg"} alt="" />
@@ -33,4 +32,4 @@ const CurrentServiceSinglePage = ({sr}) => {
   );
 };
 
-export default CurrentServiceSinglePage;
+export default SingleCart;

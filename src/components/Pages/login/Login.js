@@ -2,6 +2,7 @@ import { Result } from 'postcss';
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/UserContext';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const { user, logIn, loginWithGoogle } = useContext(AuthContext)
@@ -15,11 +16,37 @@ const Login = () => {
   const handleGoogleLogin = () =>{
     loginWithGoogle()
     .then(()=>{
+      toast.success('login successfully', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
       navigate(from, { replace: true });
     })
-    .then(err => console.error(err))
+    .catch(err => {
+      console.error(err)
+      toast.error('something went wrong', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+    })
   }
 
+
+
+
+  
   const handleOnSubmit = e =>{
     e.preventDefault()
 
@@ -29,10 +56,31 @@ const Login = () => {
 
     logIn(email, password)
     .then(result => {
-      console.log(result)
+      toast.success('login successfully', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
       navigate(from, { replace: true });
     })
-    .then(err => console.error(err))
+    .catch(err => {
+      console.error(err)
+      toast.error('something went wrong', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+    })
   }
   return (
     <section>

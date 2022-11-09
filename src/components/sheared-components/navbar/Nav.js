@@ -6,19 +6,18 @@ import logo from '../../../Images/logo/logo.png'
 const Nav = () => {
   const [state, setState] = useState(false)
   const { user, signOutUser } = useContext(AuthContext)
-  console.log(user);
 
     
   const handleSignOut = () =>{
     signOutUser()
     .then(err => console.error(err))
   }
-
   const navigation = [
       { title: "Home", path: "/" },
       { title: "Services", path: "/services" },
       { title: "Blog", path: "/blog" },
-      { title: "Contact", path: "/contact" }
+      { title: "My reviews", path: "/my_reviews"},
+      { title: "Add service", path: "/add_service"}
   ]
 
   return (
