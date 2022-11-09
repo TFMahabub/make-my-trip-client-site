@@ -12,7 +12,7 @@ const PostReviews = () => {
 
   //clicked services Id-
   const clickedService = useLoaderData()
-  const { servicesId, _id } = clickedService;
+  const { servicesId, title } = clickedService;
 
 
   const handleOnSubmit = e =>{
@@ -36,6 +36,7 @@ const PostReviews = () => {
     }
     const inputReviews = {
       serviceId: servicesId,
+      title: title,
       name: user?.displayName,
       image: user?.photoURL,
       userEmail: user?.email,
@@ -46,7 +47,7 @@ const PostReviews = () => {
 
 
     //reviews post to mongodb-
-    fetch('http://localhost:5000/reviews', {
+    fetch('https://make-my-trip-server.vercel.app/reviews', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

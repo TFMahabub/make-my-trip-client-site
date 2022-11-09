@@ -5,14 +5,14 @@ import Rating45 from '../Home/services-section/Ratings/Rating45';
 import Rating5 from '../Home/services-section/Ratings/Rating5';
 
 const SingleCart = ({review}) => {
-  const { name, image, rating, reviewText } = review;
+  const { name, image, rating, title, reviewText } = review;
 
 
   return (
     <div className='mt-10 border border-[#e6e6e6] shadow-lg rounded-lg p-6'>
       <img className='w-14 h-14 rounded-full mx-auto' src={image? image : "https://i.ibb.co/QNd1bdZ/user.jpg"} alt="" />
       <h3 className='text-lg font-semibold tracking-wide text-center text-green'>{name}</h3>
-      <div className="flex items-center space-x-1 justify-center">
+        <div className="flex items-center space-x-1 justify-center">
               {
                 rating === 0 && <Rating0></Rating0>
               }
@@ -27,6 +27,7 @@ const SingleCart = ({review}) => {
               }
               <p className="text-light-gray font-medium">{rating}</p>
         </div>
+        <h2 className='text-lg font-semibold text-light-gray text-center mt-2'>---------- {title} ----------</h2>
         <p className='text-light-gray mt-2'>{reviewText.slice(0, 70)}</p>
     </div>
   );

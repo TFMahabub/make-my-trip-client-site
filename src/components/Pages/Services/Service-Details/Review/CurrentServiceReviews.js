@@ -10,7 +10,7 @@ const CurrentServiceReviews = () => {
     const { servicesId } = clickedService;
 
   useEffect(()=>{
-    fetch(`http://localhost:5000/reviews/${servicesId}`)
+    fetch(`https://make-my-trip-server.vercel.app/reviews/${servicesId}`)
     .then(res => res.json())
     .then(data => setSpecificServiceReviews(data))
   },[specificServiceReviews])
