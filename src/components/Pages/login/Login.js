@@ -56,6 +56,7 @@ const Login = () => {
 
     logIn(email, password)
     .then(result => {
+      navigate(from, { replace: true });
       toast.success('login successfully', {
         position: "top-center",
         autoClose: 5000,
@@ -66,7 +67,6 @@ const Login = () => {
         progress: undefined,
         theme: "light",
         });
-      navigate(from, { replace: true });
     })
     .catch(err => {
       console.error(err)

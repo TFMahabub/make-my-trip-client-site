@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+## Make My Trip
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a travel guide website [Make-My-Trip](https://make-my-trip-4c38a.web.app/).
 
 ## Available Scripts
 
