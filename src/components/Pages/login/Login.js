@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/UserContext';
 import { toast } from 'react-toastify';
+import UseTitle from '../../../Hook/UseTitle';
 
 const Login = () => {
   const { user, logIn, loginWithGoogle } = useContext(AuthContext)
@@ -12,13 +13,16 @@ const Login = () => {
 
   let from = location.state?.from?.pathname || "/";
 
+  //dynamic title-
+  UseTitle('Login')
+
 
   const handleGoogleLogin = () =>{
     loginWithGoogle()
     .then(()=>{
       toast.success('login successfully', {
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -32,7 +36,7 @@ const Login = () => {
       console.error(err)
       toast.error('something went wrong', {
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -59,7 +63,7 @@ const Login = () => {
       navigate(from, { replace: true });
       toast.success('login successfully', {
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -72,7 +76,7 @@ const Login = () => {
       console.error(err)
       toast.error('something went wrong', {
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

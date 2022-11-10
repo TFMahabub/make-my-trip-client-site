@@ -2,11 +2,15 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/UserContext';
 import { toast } from 'react-toastify';
+import UseTitle from '../../../Hook/UseTitle';
 
 const Register = () => {
   const { user, SignUp, updateUserProfile } = useContext(AuthContext)
 
-console.log(user);
+  //dynamic title-
+  UseTitle('Register')
+
+
   const handleOnSubmit = e =>{
     e.preventDefault()
     const form = e.target;
@@ -23,7 +27,7 @@ console.log(user);
       })
       toast.success('create account successfully', {
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -36,7 +40,7 @@ console.log(user);
       console.error(error)
       toast.error('something went wrong', {
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

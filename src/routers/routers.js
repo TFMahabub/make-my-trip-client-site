@@ -4,9 +4,9 @@ import Blog from "../components/Pages/Blog/Blog";
 import Home from "../components/Pages/Home/Home";
 import Login from "../components/Pages/login/Login";
 import MyReviews from "../components/Pages/MyReviews/MyReviews";
+import UpdateReview from "../components/Pages/MyReviews/Update/UpdateReview";
 import Register from "../components/Pages/Register/Register";
 import ServiceDetailsPage from "../components/Pages/Services/Service-Details/ServiceDetailsPage";
-import ServiceDetails from "../components/Pages/Services/Service-Details/ServiceDetailsPage";
 import Services from "../components/Pages/Services/Services";
 import ErrorPage from "./ErrorPage";
 import MainOutlet from "./MainOutlet";
@@ -41,6 +41,11 @@ export const routers = createBrowserRouter([
       {
         path: '/my_reviews',
         element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
+      },
+      {
+        path: '/my_reviews/update/:id',
+        loader: async({params}) => fetch(`https://make-my-trip-server.vercel.app/reviews/update/${params.id}`),
+        element: <UpdateReview></UpdateReview>
       },
       {
         path: '/add_service',

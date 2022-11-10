@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import UseTitle from '../Hook/UseTitle';
 
 const ErrorPage = () => {
+
+  //dynamic title-
+  UseTitle('Error :(')
+
   return (
     <div class="grid h-screen place-content-center bg-white text-light-gray">
       <div class="text-center">

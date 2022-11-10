@@ -1,10 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Context/UserContext';
+import UseTitle from '../../../Hook/UseTitle';
 import SingleCart from './SingleCart';
 
 const MyReviews = () => {
   const { user } = useContext(AuthContext)
   const [myReviews, setMyReviews] = useState([]);
+
+  //dynamic title-
+  UseTitle('MyReviews')
 
  
   useEffect(()=>{

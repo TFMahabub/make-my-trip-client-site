@@ -21,7 +21,7 @@ const PostReviews = () => {
     if(!user?.uid){
       return toast.error('login to add a review', {
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -60,7 +60,7 @@ const PostReviews = () => {
         e.target.reset()
         toast.success('review add successfully', {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,

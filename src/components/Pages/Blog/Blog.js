@@ -1,6 +1,11 @@
 import React from 'react';
+import UseTitle from '../../../Hook/UseTitle';
 
 const Blog = () => {
+
+  //dynamic title-
+  UseTitle('Blog')
+
   return (
     <section className='container mx-auto mt-3'>
       <h2 className='text-center text-2xl font-semibold text-light-gray'>---------- Blog ----------</h2>

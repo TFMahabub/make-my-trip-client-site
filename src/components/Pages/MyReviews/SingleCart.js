@@ -6,6 +6,7 @@ import Rating5 from '../Home/services-section/Ratings/Rating5';
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { BiEditAlt } from "react-icons/bi";
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 const SingleCart = ({review, deleteFromUi}) => {
   const { name, image, rating, title, reviewText, _id } = review;
@@ -20,7 +21,7 @@ const SingleCart = ({review, deleteFromUi}) => {
         if(data?.deletedCount > 0){
           toast.success('Delete Review successfully', {
             position: "top-center",
-            autoClose: 5000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -35,10 +36,6 @@ const SingleCart = ({review, deleteFromUi}) => {
   }
 
 
-  //Edit review item-
-  const handleEditReview = _id =>{
-    console.log(_id);
-  }
 
   return (
     <div className='mt-10 border flex flex-col justify-between border-[#e6e6e6] shadow-lg rounded-lg p-6'>
@@ -60,12 +57,14 @@ const SingleCart = ({review, deleteFromUi}) => {
                   }
                   <p className="text-light-gray font-medium">{rating}</p>
             </div>
-          <h2 className='text-lg font-semibold text-light-gray text-center mt-2'>---------- {title} ----------</h2>
+          <h2 className='text-lg font-semibold text-light-gray text-center mt-2'>--- {title} ---</h2>
           <p className='text-light-gray mt-2'>{reviewText.slice(0, 70)}</p>
         </div>
         <div className='flex items-center justify-between mt-6'>
           <button onClick={()=>handleDelete(_id)} className='font-medium text-sm text-dark-gray tracking-wide px-3 py-1 bg-[#ff8282] hover:bg-[#ff6464] rounded-md'>Delete</button>
-          <button onClick={()=>handleEditReview(_id)} className='font-medium text-sm text-dark-gray tracking-wide px-3 py-1 bg-green hover:bg-green rounded-md'>Edit</button>
+          <Link to= {`/my_reviews/update/${_id}`}>
+            <button className='font-medium text-sm text-dark-gray tracking-wide px-3 py-1 bg-green hover:bg-green rounded-md'>Edit</button>
+          </Link>
         </div>
     </div>
   );
