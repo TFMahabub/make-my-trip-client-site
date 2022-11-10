@@ -13,6 +13,12 @@ const MyReviews = () => {
     .then(data => setMyReviews(data))
   },[])
 
+  //delete reviews-
+  const deleteFromUi = _id =>{
+    const remainingReviews = myReviews.filter(rvw => rvw._id !== _id)
+    setMyReviews(remainingReviews)
+  }
+
   
   return (
     <div>
@@ -23,7 +29,7 @@ const MyReviews = () => {
         :
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-12 md:gap-y-0 mb-24 container mx-auto'>
           {
-            myReviews.map(review => <SingleCart key={review?._id} review = {review}></SingleCart>)
+            myReviews.map(review => <SingleCart key={review?._id} review = {review} deleteFromUi={deleteFromUi}></SingleCart>)
           }
         </div>
       }
