@@ -12,7 +12,11 @@ const MyReviews = () => {
 
  
   useEffect(()=>{
-    fetch(`https://make-my-trip-server.vercel.app/reviews?email=${user?.email}`)
+    fetch(`https://make-my-trip-server.vercel.app/reviews?email=${user?.email}`,{
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    })
     .then(res => res.json())
     .then(data => setMyReviews(data))
   },[])

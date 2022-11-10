@@ -49,7 +49,8 @@ export const routers = createBrowserRouter([
       },
       {
         path: '/add_service',
-        element: <AddService></AddService>
+        loader: async() => fetch('https://make-my-trip-server.vercel.app/services'),
+        element: <PrivateRoute><AddService></AddService></PrivateRoute>
       },
       {
         path: '/blog',
