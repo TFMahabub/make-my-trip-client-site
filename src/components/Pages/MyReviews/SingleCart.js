@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 
 const SingleCart = ({review, deleteFromUi}) => {
-  const { name, image, rating, title, reviewText, _id } = review;
+  const { name, image, rating, title, reviewText, _id, reviewDate } = review;
 
 
   //delete review item-
@@ -57,6 +57,7 @@ const SingleCart = ({review, deleteFromUi}) => {
                   }
                   <p className="text-light-gray font-medium">{rating}</p>
             </div>
+            <p className='text-dark-gray text-center'>{reviewDate}</p>
           <h2 className='text-lg font-semibold text-light-gray text-center mt-2'>--- {title} ---</h2>
           <p className='text-light-gray mt-2'>{reviewText.slice(0, 70)}</p>
         </div>

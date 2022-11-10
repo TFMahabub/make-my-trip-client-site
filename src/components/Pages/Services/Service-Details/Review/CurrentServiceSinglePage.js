@@ -6,7 +6,7 @@ import Rating45 from '../../../Home/services-section/Ratings/Rating45';
 import Rating5 from '../../../Home/services-section/Ratings/Rating5';
 
 const CurrentServiceSinglePage = ({sr}) => {
-  const { serviceId, name, image, userEmail, rating, reviewText  } = sr;
+  const { serviceId, name, image, userEmail, rating, reviewText, reviewDate  } = sr;
 
   
   return (
@@ -28,6 +28,7 @@ const CurrentServiceSinglePage = ({sr}) => {
               }
               <p className="text-light-gray font-medium">{rating}</p>
         </div>
+        <p className='text-dark-gray text-center'>{reviewDate}</p>
         <p className='text-light-gray mt-2'>{reviewText.slice(0, 70)}</p>
     </div>
   );

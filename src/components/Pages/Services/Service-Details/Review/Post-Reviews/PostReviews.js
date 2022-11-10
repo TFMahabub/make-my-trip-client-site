@@ -41,7 +41,8 @@ const PostReviews = () => {
       image: user?.photoURL,
       userEmail: user?.email,
       rating: rating,
-      reviewText: reviewText
+      reviewText: reviewText,
+      reviewDate: new Date().toLocaleString(),
     }
 
 
