@@ -20,21 +20,39 @@ const Register = () => {
     const password = form.password.value;
 
     SignUp(email, password)
-    .then(()=>{
+    .then(result=>{
+
+      //get jwt token-
+      const userEmail = { email: result.user.email}
+      fetch('https://make-my-trip-server.vercel.app/jwt', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(userEmail)
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        console.log(data)
+        localStorage.setItem('token', data.token)
+      })
+
       updateUserProfile(name, imageUrl)
       .then(result => {
+        
+        toast.success('create account successfully', {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+
         form.reset()
-      })
-      toast.success('create account successfully', {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        });
+      }) 
     })
     .catch(error => {
       console.error(error)
