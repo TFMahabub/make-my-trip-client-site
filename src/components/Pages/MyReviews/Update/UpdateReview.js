@@ -15,7 +15,7 @@ const UpdateReview = () => {
   //dynamic title-
   UseTitle('UpdateReview')
 
-  const handleOnSubmit = () =>{
+  const handleOnSubmit = (e) =>{
     fetch(`https://make-my-trip-server.vercel.app/reviews/update/${_id}`, {
       method: 'PATCH',
       headers: {
