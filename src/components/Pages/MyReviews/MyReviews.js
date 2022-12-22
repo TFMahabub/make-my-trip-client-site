@@ -4,7 +4,7 @@ import UseTitle from '../../../Hook/UseTitle';
 import SingleCart from './SingleCart';
 
 const MyReviews = () => {
-  const { user } = useContext(AuthContext)
+  const { user , signOutUser } = useContext(AuthContext)
   const [myReviews, setMyReviews] = useState([]);
 
   //dynamic title-
@@ -17,7 +17,13 @@ const MyReviews = () => {
         authorization: `Bearer ${localStorage.getItem('token')}`
       }
     })
-    .then(res => res.json())
+    .then(res => {
+      if (res.status === 401 || res.status === 403) {
+          return signOutUser()
+      }
+      return res.json()
+  })
+    // .then(res => res.json())
     .then(data => setMyReviews(data))
   },[])
 

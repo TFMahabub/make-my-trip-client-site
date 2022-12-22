@@ -5,7 +5,9 @@ import { AuthContext } from '../Context/UserContext';
 const PrivateRoute = ({children}) => {
   const { user, loading } = useContext(AuthContext)
   let location = useLocation();
-
+  if(user?.uid){
+    return children;
+  }
   if(loading){
     return <>
               <div className="bg-gray-100">
@@ -40,12 +42,8 @@ const PrivateRoute = ({children}) => {
                 </div>
               </div>
             </>;
-  }
-  if(user?.uid){
-    return children;
-  }
+  } 
   return <Navigate to="/login" state={{ from: location }} replace />;
-  
 };
 
 export default PrivateRoute;

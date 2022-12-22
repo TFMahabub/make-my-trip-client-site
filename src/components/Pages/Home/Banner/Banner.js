@@ -7,8 +7,7 @@ const Banner = () => {
     className='md:h-[520px]'
       >
       <div 
-      className='flex flex-col-reverse md:flex-row lg:px-16
-                  items-center justify-evenly md:justify-between container mx-auto h-[520px]'
+      className='flex flex-col-reverse md:flex-row lg:px-16 items-center justify-evenly md:justify-between container mx-auto h-[520px]'
       >
         <div className='md:max-w-xl text-center md:text-left'>
             <h3 
